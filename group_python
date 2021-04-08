@@ -1,0 +1,9 @@
+select
+  bst.start_station_name,
+  bst.end_station_name,
+  count(*) as num_trips,
+  avg(bst.duration) as avg_duration_seconds,
+  min(bst.duration) as min_duration_seconds,
+  max(bst.duration) as max_duration_seconds
+from modeanalytics.sf_bike_share_trip bst
+group by bst.start_station_name,bst.end_station_name
